@@ -3,13 +3,10 @@ import ReactDOM from 'react-dom';
 import SearchBar from '../src/components/search_bar';
 import VideoList from '../src/components/video_list';
 import VideoDetail from '../src/components/video_detail';
-
+import {blackOut} from '../css/index.css'
 
 const https = require('https');
 let query = "kobe"
-const API_KEY = "AIzaSyC3EeJn5O2FUPzOUpfiekfWaGcQh04oBeQ";
-
-
 
 class App extends Component {
 	constructor(props){
@@ -20,7 +17,7 @@ class App extends Component {
 			selectedVideo: null
 		};
 
-		https.get(`https://www.googleapis.com/youtube/v3/search?q=${query}&part=snippet&key=${API_KEY}`  , (res) => {
+		https.get(`https://polar-journey-41401.herokuapp.com/search/${query}`  , (res) => {
 		  let string = ""
 		  res.on('data', (d) => {
 			 string += d
@@ -48,7 +45,9 @@ class App extends Component {
 			<div>
 				<SearchBar />
 				<VideoDetail video={this.state.selectedVideo} />
-				<VideoList videos={this.state.videos} />
+				<VideoList 
+					onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+				videos={this.state.videos} />
 			</div>	
 
 
@@ -56,6 +55,7 @@ class App extends Component {
 	}
 	
 }
+
 
 
 ReactDOM.render(

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const VideoDetail = ({video}) => {
-if( !video){
+if(!video){
 	return <div>Loading..</div>
 }
 
@@ -29,7 +29,8 @@ const iframeStyle = {
 }
 
 const border = {
-	marginLeft: "25%"
+	margin: "0 auto",
+	width: 	"700px",
 }
 
 
