@@ -24,27 +24,31 @@ class App extends Component {
 	}
 
 	videoSearch(term){
+   	if (!term) {
+   		this.videoSearch("overwatch")
+   	} else{
 
-		https.get(`https://polar-journey-41401.herokuapp.com/search/${term}`  , (res) => {
-		  let string = ""
-		  res.on('data', (d) => {
-			 string += d
-		  });
+			https.get(`https://polar-journey-41401.herokuapp.com/search/${term}`  , (res) => {
+			  let string = ""
+			  res.on('data', (d) => {
+				 string += d
+			  });
 
-		  res.on("end", (d)=>{
-		  	console.log("request returned")
-		  	let responseObject = JSON.parse(string)
-		  	let videoArr = responseObject.items
-		  	this.setState({
-		  		videos: videoArr,
-		  		selectedVideo: videoArr[0]
-		  	})
-		  })
+			  res.on("end", (d)=>{
+			  	console.log("request returned")
+			  	let responseObject = JSON.parse(string)
+			  	let videoArr = responseObject.items
+			  	this.setState({
+			  		videos: videoArr,
+			  		selectedVideo: videoArr[0]
+			  	})
+			  })
 
 
-		}).on('error', (e) => {
-		  console.error(e);
-		});
+			}).on('error', (e) => {
+			  console.error(e);
+			});
+		}
 	}
 		
 	

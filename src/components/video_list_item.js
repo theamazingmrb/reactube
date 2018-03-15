@@ -4,7 +4,6 @@ import {title, flex, iframeTextBox, listGroupItem, videoPreviewBox, mediaHeading
 const VideoListItem = ({video, onVideoSelect}) => {	
 const imageurl =video.snippet.thumbnails.default.url;
 
- console.log(video)
 
 	return(
 		<li onClick={() => onVideoSelect(video)} className={listGroupItem, videoPreviewBox}>
