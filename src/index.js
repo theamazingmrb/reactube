@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import SearchBar from '../src/components/search_bar';
 import VideoList from '../src/components/video_list';
 import VideoDetail from '../src/components/video_detail';
-import {blackOut} from '../css/index.css'
+import {} from './css/index.css'
 
 const https = require('https');
 let query = "kobe"

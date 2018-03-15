@@ -1,0 +1,44 @@
+
+.videoPreviewBox {
+	list-style: none;
+	width:  700px;
+	margin: auto;
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+.videoPreviewBox:hover {
+	background-color: #eee;
+	color: black;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.flex {
+	display: flex;
+}
+
+.title {
+	color: #ff0000;
+}
+
+.iframeTextBox {
+	padding-bottom: 20px;
+	display: inline-block;
+	padding-left: 20px;
+	margin-bottom: 20px;
+	margin-top: 25px;
+}
+
+
+.mediaHeading {
+	font-weight: bold;
+	font-size: 20ev;
+	padding-bottom: 5px 0 5px 0;
+}
+
+.mediaObject {
+	padding: 10px;
+}
+
+

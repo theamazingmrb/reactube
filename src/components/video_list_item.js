@@ -1,58 +1,26 @@
 import React from 'react';
+import {title, flex, iframeTextBox, listGroupItem, videoPreviewBox, mediaHeading, mediaObject} from '../css/video_list_item.css';
 
 const VideoListItem = ({video, onVideoSelect}) => {	
- const imageurl =video.snippet.thumbnails.default.url;
+const imageurl =video.snippet.thumbnails.default.url;
 
  console.log(video)
 
 	return(
-		<li onClick={() => onVideoSelect(video)} className="list-group-item" style={style.liStyle}>
+		<li onClick={() => onVideoSelect(video)} className={listGroupItem, videoPreviewBox}>
 		
-			<div className="video-list media" style={ style.flex}>
+			<div className={flex} >
 				<div className="media-left" >
-					<img className="media-object" src={imageurl} />
+					<img className={mediaObject} src={imageurl} />
 				</div>
 
-				<div style={style.move}>
-					<div className="media-heading">{video.snippet.title}</div>					
-					channel: <a style={style.title} href='https://google.com'> {video.snippet.channelTitle}</a>
+				<div className={iframeTextBox}>
+					<div className={mediaHeading}>{video.snippet.title}</div>					
+					channel: <a className={title} href='https://google.com'> {video.snippet.channelTitle}</a>
 				</div>
 			</div>
 		</li>
 	);
 };
-
-const style = {
-	liStyle:{
-		listStyle: "none",
-		width:  "700px",
-		margin: "0 auto",
-		marginTop: "20px",
-		overflow: "hidden"
-	},
-
-	flex: {
-		display: "flex",
-	},
-
-	title: {
-		color: "red",
-
-	},
-
-	move: {
-		paddingBottom: "20px",
-		display: "inline-block",
-		paddingLeft: "20px",
-		marginBottom: "20px",
-		marginTop: "25px"
-	},
-	
-	"list-group-item:hover": {
-		backgroundColor: "#eeee"
-	}
-}
-
-
 
 export default VideoListItem;
